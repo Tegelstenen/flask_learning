@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-con_string = os.getenv("SECRET_KEY")
+con_string = os.getenv("DB_KEY")
 ca_cert_path = "/Users/filipsjostrand/ca.pem"
 
 engine = create_engine(
