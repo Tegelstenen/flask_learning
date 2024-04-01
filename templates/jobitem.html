@@ -1,9 +1,17 @@
-<div class="border-bottom">
-    <h4>{{job['title']}}</h3>
-        <div style="margin-bottom: 10px;">
-            <p><b>Location:</b> {{job['location']}}</p>
-            {% if job['salary'] %}
-                <p><b>Salary:</b> {{job['salary']}}</p>
-            {% endif %}
-        </div>
+<div class="border-bottom row" style="margin-bottom: 8px;padding-bottom: 4px;">
+    <div class="col-9">
+        <h4 style="margin-bottom: 4px;">{{job['title']}}</h3>
+            <div style="margin-bottom: 10px;">
+                <p><b>Location:</b> {{job['location']}}</p>
+                {% if job['salary'] %}
+                    <p><b>Salary:</b> {{job['salary']}}</p>
+                {% endif %}
+            </div>
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn btn-outline-secondary">Apply</button>
+    </div>
 </div>
+
+
+
