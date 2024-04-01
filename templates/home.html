@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask Project</title>
+        <style>
+            body {
+                font-family: Roboto, sans-serif;
+            }
+            h1 {
+                color: #333;
+                font-size: 40px;
+                text-align: center;
+            }
+            h2 {
+                color: #666;
+            }
+            h4 {
+                color: #333;
+                font-size: 20px;
+            }
+            #banner {
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+            }
+            button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .formal {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>{{company_name}}</h1>
+            
+            <img id="banner" src="http://127.0.0.1:5000/static/banner.jpg" height="320">
+            
+            <h2> About Sensa</h2>
+            <p>Welcome to Sensa Careers, the innovative platform dedicated to revolutionizing the job search and recruitment process. At Sensa Careers, we believe that finding the right job or the perfect candidate should be a seamless, intuitive, and empowering journey for everyone involved.</p>
+            <p>Our mission is to connect talented individuals with the organizations where they will thrive, using cutting-edge technology and a deep understanding of the job market's complexities. Sensa Careers is more than just a job board; it's a comprehensive career development ecosystem designed to support job seekers and employers at every step of the employment journey.</p>
+            <p>For Job Seekers: Sensa Careers offers personalized job recommendations, career advice, and resources to enhance your skills and increase your marketability. Our platform uses advanced algorithms to match your unique profile with job opportunities that align with your career goals, skills, and interests, ensuring that you find not just any job, but the right job.</p>
+            <p>For Employers: We provide a suite of tools to streamline the hiring process, from posting job openings to managing applications and communicating with candidates. Sensa Careers helps you reach the best talent quickly and efficiently, with analytics to make informed hiring decisions and build your dream team.</p>
+            
+            <h2>Open Positions</h2>
+            <p>We are currently looking for the following positions:</p>
+            <p>
+                {% for job in jobs %}
+                    {% include 'jobitem.html' %}
+                {% endfor %}
+            </p>
+
+            <div style="text-align: center;">
+                <button>Contact us</button>
+                <p class="formal"> Copyright {{company_name}} 2024</p>
+            </div>
+        </div>
+    </body>
+</html>
+
