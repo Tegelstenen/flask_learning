@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+import os
 
-con_string = "mysql+pymysql://avnadmin:AVNS_kPof7KK93MJNIRlbDaH@sensacareers-sensacareers.a.aivencloud.com:28183/defaultdb?charset=utf8mb4"
+load_dotenv()
+con_string = os.getenv("SECRET_KEY")
 ca_cert_path = "/Users/filipsjostrand/ca.pem"
 
 engine = create_engine(
