@@ -3,4 +3,3 @@ sqlalchemy
 pymysql
 gunicorn
 dotenv
-os

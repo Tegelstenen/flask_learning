@@ -1,9 +1,8 @@
 from sqlalchemy import create_engine, text
-from dotenv import load_dotenv
-import os
+from dotenv import dotenv_values
 
-load_dotenv()
-con_string = os.getenv("DB_KEY")
+secrets = dotenv_values(".env")
+con_string = secrets["DB_KEY"]
 ca_cert_path = "/Users/filipsjostrand/ca.pem"
 
 engine = create_engine(
