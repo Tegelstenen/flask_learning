@@ -3,11 +3,10 @@ from sqlalchemy import create_engine, text
 
 # Assuming you've set DB_KEY in Render's environment settings
 con_string = os.environ["DB_KEY"]
-ca_cert_path = "/Users/filipsjostrand/ca.pem"
 
 engine = create_engine(
     con_string,
-    connect_args={"ssl": {"ca": ca_cert_path}},
+    connect_args={"ssl": {"ca": "ca.pem"}},
 )
 
 def load_jobs_from_db():
