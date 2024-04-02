@@ -34,9 +34,9 @@ def load_jobs_from_db():
 
 def load_a_job_from_db(id):
     with engine.connect() as conn:
-        result = conn.execute(text("SELECT * FROM JOBS WHERE id = :val"), val=id)
+        result = conn.execute(text("SELECT * FROM jobs WHERE id = :val"), {'val': id})
         row = result.all()
         if len(row) == 0:
             return None
         else:
-            return row._asdict()
+            return row[0]._asdict()

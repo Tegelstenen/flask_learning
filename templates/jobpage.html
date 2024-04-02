@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ job.title }} - Sensa Career</title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        {% include 'banner.html' %}
+        
+        <div class="container">
+            <h3> {{ job.title }} </h3>    
+            <p class="lead mt-0">{{ job.location }}</p>
+
+    
+            <h3> Description </h3>
+            
+            <ul>
+                {% for resp in job.responsibilities.split('\n') %}
+                    <li>{{ resp }}</li>
+                {% endfor %}
+            </ul>
+            
+    
+            <h3> Requirements </h3>
+            <ul>
+                {% for req in job.requirements.split('\n') %}
+                    <li>{{ req }}</li>
+                {% endfor %}
+            </ul>
+            
+
+            <p>Salary: {{ job.salary }} {{ job.currency }}</p>
+        </div>
+        
+        {% include 'footer.html' %}
+    </body>
+</html>
+
