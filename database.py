@@ -1,12 +1,24 @@
-import os
+import base64
 from sqlalchemy import create_engine, text
+from tempfile import NamedTemporaryFile
+from dotenv import load_dotenv
+import os
 
-# Assuming you've set DB_KEY in Render's environment settings
+load_dotenv()
+
 con_string = os.environ["DB_KEY"]
+ca_cert_base64 = os.getenv('CA_CERT_BASE64')
+if ca_cert_base64 is None:
+    raise ValueError('CA_CERT_BASE64 environment variable is not set.')
+
+ca_cert_decoded = base64.b64decode(ca_cert_base64)
+with NamedTemporaryFile(delete=False, mode='wb', suffix='.pem') as temp_ca_file:
+    temp_ca_file.write(ca_cert_decoded)
+    ca_cert_path = temp_ca_file.name
 
 engine = create_engine(
     con_string,
-    connect_args={"ssl": {"ca": "ca.pem"}},
+    connect_args={"ssl": {"ca": ca_cert_path}},
 )
 
 def load_jobs_from_db():

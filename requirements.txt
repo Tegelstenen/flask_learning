@@ -3,3 +3,6 @@ sqlalchemy
 pymysql
 gunicorn
 python-dotenv
+base64
+tempfile
+os
